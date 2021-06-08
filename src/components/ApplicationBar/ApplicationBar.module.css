@@ -1,0 +1,4 @@
+.wrapNavigation {
+  display: flex;
+  justify-content: space-between;
+}

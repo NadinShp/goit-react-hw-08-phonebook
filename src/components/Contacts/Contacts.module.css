@@ -1,0 +1,29 @@
+.contacts__list {
+  max-width: 350px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info {
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.button {
+  display: inline-block;
+  content: '';
+  padding: 0 5px;
+  border: 1px solid black;
+  outline: none;
+  max-height: 30px;
+  border-radius: 5px;
+}
+.button:focus,
+.button:hover {
+  border: 1px solid rgb(67, 120, 243);
+  outline: none;
+  background-color: rgb(67, 120, 243);
+  cursor: pointer;
+}
