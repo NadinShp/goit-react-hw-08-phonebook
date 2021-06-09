@@ -37,7 +37,7 @@ const AuthNavigation = () => {
         color="primary"
         activeClassName={styless.color}
       >
-        Register
+        Registration
       </ListItem>
     </Toolbar>
   );

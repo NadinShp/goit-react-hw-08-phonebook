@@ -1,23 +1,38 @@
 import PropTypes from 'prop-types';
-import styles from './Filter.module.css';
 import { connect } from 'react-redux';
+import { TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import * as actionsPhonebook from '../../redux/phonebook/actions-phonebook';
 import * as selectors from '../../redux/phonebook/selector-phonebook';
 
-const Filter = ({ value, onChangeFilter }) => (
-  <>
-    <label className={styles.label}>
-      Find contacts by name
-      <input
-        className={styles.input}
+const useStyles = makeStyles(theme => ({
+  input: {
+    display: 'flex',
+    justifyContent: 'center',
+    maxWidth: '400px',
+    width: '100%',
+    margin: 'auto',
+  },
+}));
+const Filter = ({ value, onChangeFilter }) => {
+  const styless = useStyles();
+  return (
+    <>
+      <TextField
+        className={styless.input}
+        variant="outlined"
+        margin="normal"
+        id="name"
+        label="Find contacts by name"
         name="filter"
+        autoFocus
         type="text"
         value={value}
         onChange={onChangeFilter}
       />
-    </label>
-  </>
-);
+    </>
+  );
+};
 
 Filter.defaultProps = {
   value: '',

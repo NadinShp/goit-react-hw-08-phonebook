@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const RegisterView = ({ prop, onRegister }) => {
+const RegisterView = ({ onRegister }) => {
   const [values, setValues] = useState({
     name: '',
     email: '',

@@ -1,6 +1,5 @@
 import AuthNavigation from '../AuthNavigation';
 import Navigation from '../Navigation';
-// import style from './ApplicationBar.module.css';
 import UserMenu from '../UserMenu';
 import { Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';

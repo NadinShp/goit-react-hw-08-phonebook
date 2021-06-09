@@ -3,26 +3,42 @@ import { connect } from 'react-redux';
 import Contacts from '../../components/Contacts';
 import ContactForm from '../../components/Form/ContactsForm';
 import Filter from '../../components/Filter/Filter';
-import styles from './ContactsView.module.css';
 import * as contactOperations from '../../redux/phonebook/operations-phonebook';
 import * as selectors from '../../redux/phonebook/selector-phonebook';
+import { Container, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  text: {
+    marginTop: '20px',
+    textAlign: 'center',
+  },
+  contact: {
+    marginTop: '60px',
+    textAlign: 'center',
+    marginBottom: '20px',
+  },
+}));
 const ContactsView = ({ contacts, isLoadingContacts, fetchContacts }) => {
   useEffect(() => {
     if (contacts.length === 0) {
       fetchContacts();
     }
   }, [contacts.length, fetchContacts]);
-
+  const styless = useStyles();
   return (
-    <div className={styles.wrapper}>
-      <h1>Phonebook</h1>
+    <Container>
+      <Typography variant="h3" className={styless.text}>
+        Phonebook
+      </Typography>
       <ContactForm />
-      <h2>Contacts</h2>
+      <Typography variant="h4" className={styless.contact}>
+        Contacts
+      </Typography>
       <Filter />
       {isLoadingContacts && <h1>Loading...</h1>}
       <Contacts />
-    </div>
+    </Container>
   );
 };
 const mapStateToProps = state => ({

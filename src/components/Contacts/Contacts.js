@@ -1,27 +1,41 @@
 import PropTypes from 'prop-types';
-import styles from './Contacts.module.css';
+import { List, ListItem, Button, Box, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  wrap: {
+    margin: '0 auto',
+    width: '100%',
+    maxWidth: '400px',
+  },
+  item: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));
 const Contacts = ({ contacts, onDeleteContact }) => {
+  const styless = useStyles();
   return (
-    <ul className={styles.contacts__list}>
+    <List className={styless.wrap}>
       {contacts &&
         contacts.map(({ id, name, number }) => (
-          <li key={id}>
-            <div className={styles.item}>
-              <p className={styles.info}>
-                {name}: {number}
-              </p>
-              <button
-                className={styles.button}
+          <ListItem key={id} className={styless.item}>
+            <Typography>
+              {name}: {number}
+            </Typography>
+            <Box>
+              <Button
+                variant="contained"
+                color="primary"
                 type="button"
                 onClick={() => onDeleteContact(id)}
               >
                 Delete
-              </button>
-            </div>
-          </li>
+              </Button>
+            </Box>
+          </ListItem>
         ))}
-    </ul>
+    </List>
   );
 };
 Contacts.propTypes = {
